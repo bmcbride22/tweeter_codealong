@@ -8,7 +8,8 @@ class TweetsController < ApplicationController
 
   def create
     @tweet = Tweet.new(tweet_params)
-		@tweet.user = current_user
+    @tweet.user = current_user
+
     respond_to do |format|
       if @tweet.save
         format.turbo_stream
