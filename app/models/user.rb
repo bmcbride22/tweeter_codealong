@@ -10,4 +10,6 @@ class User < ApplicationRecord
 
   validates_uniqueness_of :username
   validates_presence_of :username
+
+	has_one_attached :profile_image
 end

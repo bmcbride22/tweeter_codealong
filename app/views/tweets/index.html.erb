@@ -1,6 +1,6 @@
 <div class="mb-8">
   <%= render 'form' %>
 </div>
-<%= turbo_frame_tag 'tweets' do %>
+<%= turbo_frame_tag 'tweets', class: "divide-y" do %>
   <%= render @tweets %>
 <% end %>
