@@ -6,11 +6,11 @@ Rails.application.routes.draw do
   end
 
   resources :tweets, except: %i[edit update] do
-    resources :comments, only: %i[create destroy]
     member do
       post :retweet
     end
   end
+  # resources :comments, only: %i[create destroy]
   resources :profiles
 
   devise_for :users
