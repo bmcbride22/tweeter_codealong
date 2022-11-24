@@ -5,8 +5,13 @@ Rails.application.routes.draw do
     mount Sidekiq::Web => '/sidekiq'
   end
 
-  resources :tweets, except: %i[edit update]
-	resources :profiles
+  resources :tweets, except: %i[edit update] do
+    resources :comments, only: %i[create destroy]
+    member do
+      post :retweet
+    end
+  end
+  resources :profiles
 
   devise_for :users
   root to: 'tweets#index'
