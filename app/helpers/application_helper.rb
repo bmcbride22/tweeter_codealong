@@ -74,4 +74,22 @@ module ApplicationHelper
       "px-5 py-2 text-base #{base} #{theme}"
     end
   end
+
+  def profile_image(user, options = {})
+    size = case options[:size]
+           when 'large'
+             'w-20 h-20'
+           when 'small'
+             'w-10 h-10'
+           else
+             'w-14 h-14'
+           end
+    classes = "#{size} flex-shrink-0 rounded-full border-2 border-white"
+
+    if user.profile_image.attached?
+      image_tag user.profile_image, class: classes
+    else
+      image_tag 'https://picsum.photos/500', class: classes
+    end
+  end
 end
