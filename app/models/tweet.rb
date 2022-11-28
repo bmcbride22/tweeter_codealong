@@ -1,5 +1,5 @@
 class Tweet < ApplicationRecord
-  include Likleable
+  include Likeable
 
   belongs_to :user
   belongs_to :tweet, optional: true

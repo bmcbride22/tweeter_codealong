@@ -7,7 +7,7 @@ class LikesController < ApplicationController
       @like.destroy
     else
       @like = @likeable.likes.new
-      @lise.user = current_user
+      @like.user = current_user
       @like.save!
     end
   end

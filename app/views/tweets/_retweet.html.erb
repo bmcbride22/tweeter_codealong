@@ -9,7 +9,7 @@
     </div>
     <div class="flex flex-col">
       <p class="font-bold"><%= link_to tweet.tweet.user.name, profile_path(tweet.tweet.user), class: "hover:underline", data: {turbo: false} %></p>
-      <%= link_to tweet, data: { turbo: false } do %>
+      <%= link_to tweet.tweet, data: { turbo: false } do %>
         <div class="prose prose-lg mb-3"><%= tweet.tweet.body %></div>
       <% end %>
       <ul class="flex space-x-14 items-start justify-start list-none">
