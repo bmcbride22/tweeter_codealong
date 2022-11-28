@@ -11,7 +11,10 @@ Rails.application.routes.draw do
       post :retweet
     end
   end
+
   resources :profiles
+
   devise_for :users
+
   root to: 'tweets#index'
 end

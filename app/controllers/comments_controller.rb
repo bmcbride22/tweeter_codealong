@@ -18,6 +18,11 @@ class CommentsController < ApplicationController
   def destroy
     @comment = @tweet.comments.find(params[:id])
     @comment.destroy
+
+    respond_to do |format|
+      format.turbo_stream
+      format.html { redirect_to tweet_path(@tweet), notice: 'Comment was deleted' }
+    end
   end
 
   private
